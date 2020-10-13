@@ -73,7 +73,7 @@
         </v-card-text>
         <v-card-actions>
           <v-spacer />
-          <v-btn color="primary" nuxt to="/inspire"> Continue </v-btn>
+          <v-btn color="primary" nuxt to="/inspire"> Continue</v-btn>
         </v-card-actions>
       </v-card>
     </v-col>
@@ -88,6 +88,15 @@ export default {
   components: {
     Logo,
     VuetifyLogo,
+  },
+  data() {
+    return {
+      show1: false,
+      show2: true,
+      show3: false,
+      show4: false,
+      password: 'Password',
+    }
   },
 }
 </script>

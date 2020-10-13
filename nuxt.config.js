@@ -34,11 +34,18 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    '@nuxtjs/auth',
   ],
-
+  router: {
+    middleware: ['auth'],
+  },
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
-  axios: {},
-
+  axios: {
+    credentials: true, // Access-Control-Allow-Origin 를 true
+  },
+  auth: {
+    // Options
+  },
   // Vuetify module configuration (https://go.nuxtjs.dev/config-vuetify)
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
@@ -47,5 +54,15 @@ export default {
     },
   },
   // Build Configuration (https://go.nuxtjs.dev/config-build)
-  build: {},
+  build: {
+    postcss: {
+      plugins: {
+        'postcss-preset-env': {
+          autoprefixer: {
+            grid: true,
+          },
+        },
+      },
+    },
+  },
 }

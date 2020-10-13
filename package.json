@@ -8,9 +8,11 @@
     "start": "nuxt start",
     "generate": "nuxt generate",
     "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "lint": "yarn lint:js"
+    "lint": "yarn lint:js",
+    "browserslist": "browserslist"
   },
   "dependencies": {
+    "@nuxtjs/auth": "^4.9.1",
     "@nuxtjs/axios": "^5.12.2",
     "core-js": "^3.6.5",
     "nuxt": "^2.14.5"
@@ -25,5 +27,10 @@
     "eslint-plugin-nuxt": "^1.0.0",
     "eslint-plugin-prettier": "^3.1.4",
     "prettier": "^2.1.1"
-  }
+  },
+  "browserslist": [
+    "last 2 version",
+    "android >= 4.4",
+    "IE >= 10"
+  ]
 }
