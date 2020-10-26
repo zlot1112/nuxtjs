@@ -23,6 +23,7 @@
                     placeholder="패스워드를 입력하여 주세요."
                     prepend-icon="mdi-lock"
                     :type="show ? 'text' : 'password'"
+                    @click:append="show = !show"
                   ></v-text-field>
                 </v-card-text>
                 <v-card-actions>
@@ -50,8 +51,17 @@ export default {
     }
   },
   methods: {
-    login() {
-      alert('login')
+    async login() {
+      try {
+        const res = await this.$auth.login('local', {
+          data: { id: this.id, pw: this.pw },
+        })
+        // eslint-disable-next-line no-console
+        console.log(res)
+      } catch (err) {
+        // eslint-disable-next-line no-console
+        console.log(err)
+      }
     },
   },
 }

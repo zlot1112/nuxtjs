@@ -41,10 +41,39 @@ export default {
   },
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {
-    credentials: true, // Access-Control-Allow-Origin 를 true
+    baseURL: 'http://localhost', // Baseurl
+    proxyHeaders: false,
+    credentials: false,
+  },
+  publicRuntimeConfig: {
+    axios: {
+      browserBaseURL: process.env.BROWSER_BASE_URL | '/api/',
+    },
+  },
+  privateRuntimeConfig: {
+    axios: {
+      baseURL: process.env.BASE_URL,
+    },
   },
   auth: {
-    // Options
+    local: {
+      strategies: {
+        endpoints: {
+          login: { url: '/auth/login', method: 'post', propertyName: 'token' },
+          logout: { url: '/auth/logout', method: 'post' },
+        },
+      },
+      user: {
+        // property: 'user',
+        autoFetch: false,
+      },
+    },
+    redirect: {
+      login: '/auth/login',
+      logout: '/auth/login',
+      callback: '/login',
+      home: '/',
+    },
   },
   // Vuetify module configuration (https://go.nuxtjs.dev/config-vuetify)
   vuetify: {
